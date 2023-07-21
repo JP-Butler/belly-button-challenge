@@ -1,30 +1,5 @@
 //1. Read in the samples.json data 
-const samplesUrl = "https://2u-data-curriculum-team.s3.amazonaws.com/dataviz-classroom/v1.1/14-Interactive-Web-Visualizations/02-Homework/samples.json";
-
-// Promise object for samples data
-// const samplesPromise = d3.json(samplesUrl);
-// // Console log promise to show result
-// console.log("Samples Data Promise:", samplesPromise);
-
-// // Get the json data and log it to console
-
-
-// //2. Horizontal bar chart displaying the top 10 OTUs found in a given individual
-
-// let barTrace = [{
-//     values: data.sample_values,
-//     labels: data.otu_ids,
-//     type: "bar"
-// }];
-
-// let barData = [barTrace]
-
-// let layout = {
-//     title: "Top 10 OTUs"
-// };
-
-// // plot bar plot
-// Plotly.newPlot("bar", barData, layout);
+const samplesUrl = "https://2u-data-curriculum-team.s3.amazonaws.com/dataviz-classroom/v1.1/14-Interactive-Web-Visualizations/02-Homework/samples.json"
 
 
 // initialize default dashboard, display all with 1st test subject ID No.
@@ -57,8 +32,8 @@ function plotFigures(sampleID){
     function afterGettingData(data){
        
     console.log(data);
-    let sample= data.samples.filter( function(item){return item.id== sampleID})[0]
-    console.log(sample)
+    let sample= data.samples.filter( function(item){return item.id== sampleID})[0];
+    console.log(sample);
     
     // Initial Bar Plot 
     let barTrace = {
@@ -124,21 +99,20 @@ function writeMetadata(sampleID){
             .append('h6')
             .text((d) => `${d[0]}: ${d[1]}`);
     }
-    insertData(sampleMetaData)   //(sampleMetaData)
+    insertData(sampleMetaData)   
 }
 
 };
 
+// Function to update dashboard according to Test Subject chosen 
 function optionChanged(dataChange){
-    console.log(dataChange)
-    plotFigures(dataChange)
-    writeMetadata(dataChange)
+
+    console.log(dataChange);
+    plotFigures(dataChange);
+    writeMetadata(dataChange);
 
 };
 
-
-
-
-//writeMetadata();
+//Call initialize function to display default (1st test subject) dashboard
 init();
 

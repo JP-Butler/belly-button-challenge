@@ -8,7 +8,6 @@ In this challenge I play the role of developer, tasked with creating an interact
 
 - [About & Process](#about--process)
 - [Getting Started & Installing](#getting-started--installing)
-- [Installation Info](#installation-info)
 - [Contributing](#contributing)
 
 ## About & Process

@@ -30,7 +30,7 @@ function plotFigures(sampleID){
 
     
     function afterGettingData(data){
-       
+    // Log data to console to visualize
     console.log(data);
     let sample= data.samples.filter( function(item){return item.id== sampleID})[0];
     console.log(sample);
@@ -72,7 +72,7 @@ function plotFigures(sampleID){
         xaxis: {title: "OTU ID"}
     };
 
-    // Plot chart to page 
+    // Plot bubble chart to dashboard
     Plotly.newPlot("bubble", bubData, layoutBub)
 
         }
@@ -84,12 +84,13 @@ function writeMetadata(sampleID){
     d3.json(samplesUrl).then(data => afterGettingData(data));
 
      function afterGettingData(data){
+        // Verify data in console
          console.log(data);
-
+        // filter down to extract metadata
          let sampleMetaData= data.metadata.filter( function(item){return item.id== sampleID})[0];
         console.log(sampleMetaData);
 
-
+    // Insert metadata into correct div
     function insertData(metaData){
         let metaDataId = d3.select('#sample-metadata').html("").append('div');
 
@@ -107,6 +108,7 @@ function writeMetadata(sampleID){
 // Function to update dashboard according to Test Subject chosen 
 function optionChanged(dataChange){
 
+    //Perform fucntions with dataChange to allow dashboard to change
     console.log(dataChange);
     plotFigures(dataChange);
     writeMetadata(dataChange);
